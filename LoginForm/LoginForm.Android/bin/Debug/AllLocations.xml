@@ -1,0 +1,234 @@
+﻿<ArrayOfLocation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+
+	<Location>
+
+		<LocationTreeId>1</LocationTreeId>
+
+		<Name>المملكة العربية السعودية</Name>
+
+		<NameEnglish>Saudi Arabia</NameEnglish>
+
+	</Location>
+
+
+	<Location>
+
+		<LocationTreeId>2</LocationTreeId>
+
+		<Name>المغرب</Name>
+
+		<NameEnglish>Morocco</NameEnglish>
+
+	</Location>
+
+
+	<Location>
+
+		<LocationTreeId>3</LocationTreeId>
+
+		<Name>جمهورية مصر العربية</Name>
+
+		<NameEnglish>Egypt</NameEnglish>
+
+	</Location>
+
+
+	<Location>
+
+		<LocationTreeId>4</LocationTreeId>
+
+		<Name>دار البيضاء</Name>
+
+		<NameEnglish>Casablanca</NameEnglish>
+
+	</Location>
+
+
+	<Location>
+
+		<LocationTreeId>5</LocationTreeId>
+
+		<Name>الرياض</Name>
+
+		<NameEnglish>Riyadh</NameEnglish>
+
+	</Location>
+
+
+	<Location>
+
+		<LocationTreeId>6</LocationTreeId>
+
+		<Name>جدة</Name>
+
+		<NameEnglish>Jeddah</NameEnglish>
+
+	</Location>
+
+
+	<Location>
+
+		<LocationTreeId>7</LocationTreeId>
+
+		<Name>الدمام</Name>
+
+		<NameEnglish>Dammam</NameEnglish>
+
+	</Location>
+
+
+	<Location>
+
+		<LocationTreeId>8</LocationTreeId>
+
+		<Name>مكة المكرمة</Name>
+
+		<NameEnglish>Makkah</NameEnglish>
+
+	</Location>
+
+
+	<Location>
+
+		<LocationTreeId>9</LocationTreeId>
+
+		<Name>عيادة الجراحة العامة</Name>
+
+		<NameEnglish>General surgery clinic</NameEnglish>
+
+	</Location>
+
+
+	<Location>
+
+		<LocationTreeId>10</LocationTreeId>
+
+		<Name>قصر اليمامة</Name>
+
+		<NameEnglish>Yamama Palace</NameEnglish>
+
+	</Location>
+
+
+	<Location>
+
+		<LocationTreeId>11</LocationTreeId>
+
+		<Name>قصر العوجاء</Name>
+
+		<NameEnglish>Al-Awja Palace</NameEnglish>
+
+	</Location>
+
+
+	<Location>
+
+		<LocationTreeId>12</LocationTreeId>
+
+		<Name>المبنى الاول</Name>
+
+		<NameEnglish/>
+
+	</Location>
+
+
+	<Location>
+
+		<LocationTreeId>13</LocationTreeId>
+
+		<Name>االدور الاول</Name>
+
+		<NameEnglish/>
+
+	</Location>
+
+
+	<Location>
+
+		<LocationTreeId>14</LocationTreeId>
+
+		<Name>عيادة الدور الاول</Name>
+
+		<NameEnglish/>
+
+	</Location>
+
+
+	<Location>
+
+		<LocationTreeId>15</LocationTreeId>
+
+		<Name>المبنى الثالث</Name>
+
+		<NameEnglish>The third building</NameEnglish>
+
+	</Location>
+
+
+	<Location>
+
+		<LocationTreeId>16</LocationTreeId>
+
+		<Name>عيادة الدور الارضي(اسنان)</Name>
+
+		<NameEnglish>Ground floor clinic (dental)</NameEnglish>
+
+	</Location>
+
+
+	<Location>
+
+		<LocationTreeId>17</LocationTreeId>
+
+		<Name> عيادة الدور الاول</Name>
+
+		<NameEnglish>First floor clinic</NameEnglish>
+
+	</Location>
+
+
+	<Location>
+
+		<LocationTreeId>18</LocationTreeId>
+
+		<Name> عيادة اسنان</Name>
+
+		<NameEnglish/>
+
+	</Location>
+
+
+	<Location>
+
+		<LocationTreeId>19</LocationTreeId>
+
+		<Name>عيادة الديوان الملكي</Name>
+
+		<NameEnglish/>
+
+	</Location>
+
+
+	<Location>
+
+		<LocationTreeId>20</LocationTreeId>
+
+		<Name>قصر منى</Name>
+
+		<NameEnglish/>
+
+	</Location>
+
+
+	<Location>
+
+		<LocationTreeId>21</LocationTreeId>
+
+		<Name>القاهرة</Name>
+
+		<NameEnglish/>
+
+	</Location>
+
+</ArrayOfLocation>

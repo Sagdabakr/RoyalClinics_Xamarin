@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LoginForm.Views.UpdateUsers"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#353C46" >
+
+            <!--BackButton-->
+            <StackLayout HorizontalOptions="Start" Margin="15" Orientation="Horizontal">
+                <Frame Style="{StaticResource IconFrame}">
+                    <Image Source="back.png" HeightRequest="40" WidthRequest="40" />
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="BackButtonTapped"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand"  >
+                    <Frame Style="{StaticResource IconFrame}">
+                        <Image Source="nwuser.png" HeightRequest="40" WidthRequest="40" Margin="5"/>
+                    </Frame>
+                    <Label Text="Update Users" Style="{StaticResource GridHeader}"/>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout HorizontalOptions="CenterAndExpand" Margin="0,40,0,40" x:Name="Header">
+                <Frame Style="{StaticResource IconFrame}" CornerRadius="0">
+                    <Image Source="xml.png" HeightRequest="90" WidthRequest="90"/>
+                </Frame>
+                <StackLayout Spacing="7" Margin="0,23,0,0">
+                    <Label Text="You need to upload" Margin="0" Style="{StaticResource GridLabels}" FontSize="15" />
+                    <Label Text="Users file" Margin="0" Style="{StaticResource GridHeader}" FontSize="25"/>
+                </StackLayout>
+            </StackLayout>
+
+
+            <Frame HorizontalOptions="FillAndExpand" x:Name="ListFrame" IsVisible="False" Padding="0" CornerRadius="10" BorderColor="#AA48BAD6" BackgroundColor="Transparent" Margin="3,0">
+                <ListView x:Name="UsersList" Margin="20,0" VerticalOptions="Start" HasUnevenRows="True" SelectionMode="None" SeparatorVisibility="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Label Text="{Binding UserName}" HorizontalOptions="Start" Style="{StaticResource GridLabels}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Frame>
+
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" IsVisible="False"  VerticalOptions="CenterAndExpand" x:Name="UsersCount" Margin="5" Spacing="10">
+                <Frame Style="{StaticResource IconFrame}" CornerRadius="0">
+                    <Image Source="nwuser" HeightRequest="25" WidthRequest="25"/>
+                </Frame>
+                <Label x:Name="ListCounter" Style="{StaticResource GridLabels}"/>
+            </StackLayout>
+
+
+            <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal" Spacing="10"  Margin="10" >
+                <Frame WidthRequest="140" HasShadow="True" HorizontalOptions="Center" IsClippedToBounds="True" BackgroundColor="#48BAD6" Padding="18,5" CornerRadius="20">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0" >
+                        <Frame Padding="0" VerticalOptions="Center" IsClippedToBounds="True"  BackgroundColor="Transparent" HasShadow="False" >
+                            <Image Source="add.png" Margin="0" HeightRequest="30" WidthRequest="30"/>
+                        </Frame>
+                        <Label Margin="0" Text="Upload File" Style="{StaticResource GridHeader}" FontSize="17" TextColor="White" />
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="UploadFileClicked"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+                <Frame  WidthRequest="140" HasShadow="True" VerticalOptions="Center" x:Name="SavingOption" IsVisible="False" IsClippedToBounds="True" BackgroundColor="White" Padding="18,5" CornerRadius="20" >
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <Frame Padding="0" VerticalOptions="Center" IsClippedToBounds="True"  BackgroundColor="Transparent" HasShadow="False" >
+                            <Image Source="save.png" Margin="0" HeightRequest="30" WidthRequest="30"/>
+                        </Frame>
+                        <Label Margin="0" Text="Save Users" Style="{StaticResource GridHeader}"  FontSize="17" TextColor="#353c46" />
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnSaveClicked"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+                
+            </StackLayout>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:LoginForm"
+             x:Class="LoginForm.Views.CreateAccount"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#353C46">
+            <!--BackButton-->
+            <StackLayout HorizontalOptions="Start" Margin="15" x:Name="BackButton" IsVisible="false">
+                <Frame Style="{StaticResource IconFrame}" >
+                    <Image Source="back.png" HeightRequest="40" WidthRequest="40" />
+                </Frame>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="BackButtonTapped"/>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+
+            <StackLayout Spacing="25" Margin="5" VerticalOptions="CenterAndExpand">
+                <Frame BackgroundColor="#353C46" IsClippedToBounds="True" HasShadow="False">
+                    <Image Source="mm.png" HeightRequest="90" WidthRequest="300"/>
+                </Frame>
+                <!--Entries Frames-->
+                <StackLayout Margin="35" Spacing="40">
+
+                    <Frame IsClippedToBounds="True" Padding="0" CornerRadius="40" BorderColor="#8E9196" BackgroundColor="#8E9196">
+                        <StackLayout  Orientation="Horizontal" Spacing="0" HorizontalOptions="FillAndExpand" Margin="35,0" BackgroundColor="#8E9196" >
+                            <Image Source="user.png" HeightRequest="35" WidthRequest="35"/>
+                            <local:RoundedEntry TextColor="White" PlaceholderColor="White" Placeholder="Username" x:Name="LoginName" HorizontalOptions="FillAndExpand" ClearButtonVisibility="WhileEditing"/>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame IsClippedToBounds="True" Padding="0" CornerRadius="40" BorderColor="#8E9196" BackgroundColor="#8E9196">
+                        <StackLayout  Orientation="Horizontal" Spacing="0" HorizontalOptions="FillAndExpand" Margin="35,0" BackgroundColor="#8E9196" >
+                            <Image Source="key.png" HeightRequest="35" WidthRequest="35"/>
+                            <local:RoundedEntry TextColor="White" PlaceholderColor="White" Placeholder="Password" x:Name="LoginPassword" HorizontalOptions="FillAndExpand" IsPassword="True" ClearButtonVisibility="WhileEditing"/>
+                        </StackLayout>
+                    </Frame>
+                    
+                    <StackLayout Spacing="5">
+                        <Label x:Name="WrongInfo" IsVisible="false" Text="Please enter valid Username and Password" TextColor="White" HorizontalOptions="Center" Margin="0"/>
+                        <Button Text="Create Account" Clicked="OnCreateClicked"  HorizontalOptions="Fill"  BackgroundColor="#48BAD6" TextColor="White" FontSize="20" CornerRadius="40" />
+                    </StackLayout>
+                    
+                </StackLayout>
+
+                <Button x:Name="CancelButton" IsVisible="false" Margin="35,0" Text="Cancel" Clicked="OnCancelClicked"  HorizontalOptions="FillAndExpand" BorderColor="White" TextColor="White" BorderWidth="1"  BackgroundColor="#353C46" CornerRadius="40"/>
+                <Button x:Name="LoginButton" Margin="35,0" Text="Login" Clicked="OnLoginClicked"  HorizontalOptions="FillAndExpand" BorderColor="White" TextColor="White" BorderWidth="1"  BackgroundColor="#353C46" CornerRadius="40"/>
+                
+            </StackLayout>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

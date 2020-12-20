@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:LoginForm"  
+             x:Class="LoginForm.Views.ScanTransaction"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#353C46">
+
+            <!--BackButton-->
+            <StackLayout HorizontalOptions="FillAndExpand" Margin="15" Orientation="Horizontal" >
+                <Frame Style="{StaticResource IconFrame}" >
+                    <Image Source="back.png" HeightRequest="40" WidthRequest="40" />
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="BackButtonTapped"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+                <StackLayout Orientation="Horizontal"   >
+                    <Frame Style="{StaticResource IconFrame}">
+                        <Image Source="qr.png" HeightRequest="40" WidthRequest="40" Margin="5"/>
+                    </Frame>
+                    <Label Text="Scan Barcode" Style="{StaticResource GridHeader}"/>
+                </StackLayout>
+            </StackLayout>
+
+            <!--Location Picker-->
+            <StackLayout HorizontalOptions="FillAndExpand" Margin="50,0" Spacing="0" BackgroundColor="#353C46" >
+                <StackLayout  Orientation="Horizontal"   Spacing="8">
+                    <Frame IsClippedToBounds="True" CornerRadius="0" Padding="0" VerticalOptions="Start" BackgroundColor="#353C46" HasShadow="False">
+                        <Image Source="pin.png" HeightRequest="35" WidthRequest="35" Margin="0"/>
+                    </Frame>
+                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" Spacing="0">
+                        <Label Text="Location From" FontSize="16" Margin="0" TextColor="White"/>
+                        <Picker HorizontalOptions="Fill" x:Name="LocationFrom_Picker" SelectedIndexChanged="LocationFromChanged" TitleColor="White" TextColor="White" 
+                                ItemsSource="{Binding AllCountries}"
+                                ItemDisplayBinding="{Binding Name}" Title="From" />
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout  Orientation="Horizontal" Spacing="8">
+                    <Frame IsClippedToBounds="True" CornerRadius="0" Padding="0" VerticalOptions="Start" BackgroundColor="#353C46" HasShadow="False">
+                        <Image Source="map.png" HeightRequest="35" WidthRequest="35" Margin="0"/>
+                    </Frame>
+
+                    <StackLayout HorizontalOptions="FillAndExpand" Spacing="0">
+                        <Label Text="Location To" FontSize="16" TextColor="White"/>
+                        <Picker x:Name="LocationTo_Picker" SelectedIndexChanged="LocationToChanged" TitleColor="White" TextColor="White" ItemsSource="{Binding RemainCountries}"
+                                ItemDisplayBinding="{Binding Name}" Title="To" IsEnabled="False" HorizontalOptions="FillAndExpand"></Picker>
+                    </StackLayout>
+                </StackLayout>
+                
+                <StackLayout  Orientation="Horizontal"  Spacing="8">
+                    <Frame IsClippedToBounds="True" CornerRadius="0" Padding="0" VerticalOptions="Start" BackgroundColor="#353C46" HasShadow="False">
+                        <Image Source="handheld.png" HeightRequest="35" WidthRequest="35" Margin="0"/>
+                    </Frame>
+                    <StackLayout HorizontalOptions="FillAndExpand" Spacing="0">
+                        <Label Text="Scan Barcode" FontSize="16" TextColor="White"/>
+                        <Editor Grid.Column="1" FontSize="15" PlaceholderColor="LightGray" TextColor="White" x:Name="NewBarCode" Placeholder="Barcode"  IsEnabled="False" Completed="ScanNewRecord" />
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+
+
+            <!--Scanned Data Form-->
+            <StackLayout VerticalOptions="Start" >
+                <Grid VerticalOptions="Center" BackgroundColor="#48BAD6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Column="0"  Grid.Row="0" Text="#" Style="{StaticResource GridHeader}"  HorizontalOptions="Center"/>
+                    <Label Grid.Column="1" Grid.Row="0" Text="Barcode" Style="{StaticResource GridHeader}" HorizontalOptions="Center"/>
+                    <Label Grid.Column="2" Grid.Row="0" Text="User name" Style="{StaticResource GridHeader}" HorizontalOptions="Center" />
+                  
+                </Grid>
+
+                <ListView HasUnevenRows="True" x:Name="NewScansList" SelectionMode="None" SeparatorColor="#8E9196"  >
+
+                    <!--New Scans Data-->
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1*"/>
+                                            <ColumnDefinition Width="4*"/>
+                                            <ColumnDefinition Width="2*"/>
+                                            <!--<ColumnDefinition Width="3*"/>-->
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Column="0" Text="{Binding ListIndex}" Style="{StaticResource GridLabels}" HorizontalOptions="Center"/>
+                                        <Label Grid.Column="1"  Text="{Binding BarCode}"  Style="{StaticResource GridLabels}" HorizontalOptions="Center"/>
+                                        <Label Grid.Column="2" Text="{Binding UserName}"  Style="{StaticResource GridLabels}" HorizontalOptions="Center"/>
+                                        <!--<Label Grid.Column="3" Text="{Binding DateOfAction , StringFormat='{0:M/dd/yyyy}'}"  Style="{StaticResource GridLabels}"/>-->
+                                    </Grid>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <!--Entry For New Scans-->
+                </ListView>
+            </StackLayout>
+
+            <!--Save And Cancel Buttons-->
+            <!--<StackLayout HorizontalOptions="FillAndExpand" Spacing="1" Margin="0" Padding="0" VerticalOptions="End" >
+                <Label x:Name="TotalRecentScans" IsVisible="False" Style="{StaticResource GridLabels}"/>
+                <StackLayout Orientation="Horizontal" Margin="45,0,45,7">
+                    <Button x:Name="SaveButton" Text="Save" Clicked="OnSaveClicked" Style="{StaticResource Button}"  HorizontalOptions="FillAndExpand" Padding="0" VerticalOptions="Center" />
+                    <Button x:Name="CancelButton" Text="Cancel" Clicked="OnCancelClicked" Style="{StaticResource Button}" HorizontalOptions="FillAndExpand" Padding="0" VerticalOptions="Center"/>
+                </StackLayout>
+            </StackLayout>-->
+            <BoxView Color="White" HeightRequest="0.5" Margin="0" />
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"  Margin="0,0,0,6" BackgroundColor="#353C46">
+                <Frame HasShadow="False"  BackgroundColor="#353C46" HorizontalOptions="CenterAndExpand" x:Name="SaveButton" Padding="0" IsClippedToBounds="True" VerticalOptions="End" >
+                    <StackLayout Spacing="0" VerticalOptions="End" >
+                        <Frame Style="{StaticResource IconFrame}">
+                            <Image Margin="6" Source="xml.png" HeightRequest="30" WidthRequest="30"/>
+                        </Frame>
+                        
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnSaveClicked"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+                <Frame HasShadow="False"  BackgroundColor="#353C46" HorizontalOptions="CenterAndExpand" Padding="0" IsClippedToBounds="True" VerticalOptions="End" >
+                    <StackLayout Spacing="0" VerticalOptions="End" Orientation="Horizontal" >
+                        <Frame Style="{StaticResource IconFrame}">
+                            <Image Margin="6" Source="handheld.png" HeightRequest="30" WidthRequest="30"/>
+                        </Frame>
+                        <Label Margin="0" Style="{StaticResource GridLabels}" FontSize="15" HorizontalOptions="Center" VerticalOptions="Center" x:Name="TotalRecentScans"/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame HasShadow="False"  BackgroundColor="#353C46" HorizontalOptions="CenterAndExpand" x:Name="CancelButton" Padding="0" IsClippedToBounds="True" VerticalOptions="End" >
+                    <StackLayout Spacing="0" VerticalOptions="End" >
+                        <Frame Style="{StaticResource IconFrame}">
+                            <Image Margin="6" Source="cancel.png" HeightRequest="30" WidthRequest="30"/>
+                        </Frame>
+                       
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnCancelClicked"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

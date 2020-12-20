@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LoginForm.Views.MainMenu"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#353C46" Spacing="0">
+            
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Spacing="35" Margin="20,0">
+               
+                <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                    <Frame Style="{StaticResource IconFrame}">
+                        <Image Source="qr.png" HeightRequest="50" WidthRequest="50" Margin="5"/>
+                    </Frame>
+
+                    <Button Text="Scan Barcode"  Clicked="ScanCodeClicked" Style="{StaticResource MenuButton}"/>
+                </StackLayout>
+              
+                <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                    <Frame Style="{StaticResource IconFrame}">
+                        <Image Source="seo.png" HeightRequest="50" WidthRequest="50" Margin="5"/>
+                    </Frame>
+
+                    <Button Text="All Transactions" Clicked="AllTransactionsClicked" Style="{StaticResource MenuButton}"/>
+                </StackLayout>
+                
+                <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                    <Frame Style="{StaticResource IconFrame}">
+                        <Image Source="country.png" HeightRequest="50" WidthRequest="50" Margin="5"/>
+                    </Frame>
+
+                    <Button Text="Update Locations" Clicked="UpdatLocationsClicked" Style="{StaticResource MenuButton}"/>
+                </StackLayout>
+                
+                <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                    <Frame Style="{StaticResource IconFrame}">
+                        <Image Source="nwuser.png" HeightRequest="50" WidthRequest="50" Margin="5"/>
+                    </Frame>
+
+                    <Button Text="Update Users" Clicked="UpdateUsersClicked" Style="{StaticResource MenuButton}"/>
+                </StackLayout>
+                                               
+            </StackLayout>
+
+            <Button Margin="35,0,35,20" Text="Log Out" Clicked="OnLogOutClicked" BorderColor="White" BorderWidth="1"  BackgroundColor="#353C46" Style="{StaticResource MenuButton}" />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

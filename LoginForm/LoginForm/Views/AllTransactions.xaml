@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LoginForm.Views.AllTransactions"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#353C46">
+
+            <!--BackButton-->
+            <StackLayout HorizontalOptions="FillAndExpand" Margin="15" Orientation="Horizontal">
+                <Frame Style="{StaticResource IconFrame}" HorizontalOptions="Start" >
+                    <Image Source="back.png" HeightRequest="40" WidthRequest="40" />
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="BackButtonTapped"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+                <StackLayout Orientation="Horizontal"   >
+                    <Frame Style="{StaticResource IconFrame}">
+                        <Image Source="seo.png" HeightRequest="40" WidthRequest="40" Margin="5"/>
+                    </Frame>
+                    <Label Text="All Transaction" Style="{StaticResource GridHeader}"/>
+                </StackLayout>
+
+            </StackLayout>
+            <!--Data-->
+                <ListView HasUnevenRows="True"  ItemsSource="{Binding AllSheetInfo}" SelectionMode="None" SeparatorColor="#8E9196" Margin="7,0">
+                    <ListView.Header>
+                        <Grid VerticalOptions="Center" BackgroundColor="#48BAD6">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="4*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <!--<ColumnDefinition Width="3*"/>-->
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="35"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Column="0"  Grid.Row="0" Text="#" Style="{StaticResource GridHeader}"/>
+                            <Label Grid.Column="1" Grid.Row="0" Text="Barcode" Style="{StaticResource GridHeader}"/>
+                            <Label Grid.Column="2" Grid.Row="0" Text="Username" Style="{StaticResource GridHeader}" />
+                            <!--<Label Grid.Column="3" Grid.Row="0" Text="Date" Style="{StaticResource GridHeader}"/>-->
+                        </Grid>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1*"/>
+                                            <ColumnDefinition Width="4*"/>
+                                            <ColumnDefinition Width="2*"/>
+                                            <!--<ColumnDefinition Width="3*"/>-->
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Column="0" Text="{Binding id}" Style="{StaticResource GridLabels}" />
+                                        <Label Grid.Column="1" Text="{Binding BarCode}"  Style="{StaticResource GridLabels}"/>
+                                        <Label Grid.Column="2" Text="{Binding UserName}"  Style="{StaticResource GridLabels}"/>
+                                        <!--<Label Grid.Column="3" Text="{Binding DateOfAction , StringFormat='{0:M/dd/yyyy}'}"  Style="{StaticResource GridLabels}"/>-->
+                                    </Grid>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
